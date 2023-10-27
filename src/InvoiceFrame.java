@@ -41,11 +41,6 @@ public class InvoiceFrame extends JFrame
     JLabel stateLab;
     JLabel zipLab;
 
-    //arrayList
-    String [] details;
-
-
-
     //JScroller
     JScrollPane scroller;
 
@@ -158,7 +153,13 @@ public class InvoiceFrame extends JFrame
         invoice.append("=====================================================");
         invoice.append("\n");
 
-        invoice.append(String.format("%-8s%-16s%-28s%11s", "Item", "QTY", "Price", "Total"));
+        invoice.append(String.format("%-23s%-8s%-16s%17s", "Item", "QTY", "Price", "Total"));
+
+        System.out.println(name.getText());
+        System.out.println(street.getText());
+        System.out.println(city.getText() + ", " + state.getText() + " " + zip.getText());
+        System.out.println("=====================================================");
+        System.out.println(String.format("%-23s%-8s%-16s%17s", "Item", "QTY", "Price", "Total"));
 
     }
 
@@ -178,8 +179,9 @@ public class InvoiceFrame extends JFrame
         amountDue = amountDue + dubCalTotal;
 
         invoice.append("\n");
-        invoice.append(String.format("%-8s%-16s%-28s%11s", product.getText(), quantity.getText(), strPrice, strCalcTotal));
+        invoice.append(String.format("%-23s%-8s%-16s%17s", product.getText(), quantity.getText(), strPrice, strCalcTotal));
 
+        System.out.println(String.format("%-23s%-8s%-16s%17s", product.getText(), quantity.getText(), strPrice, strCalcTotal));
 
 
         //clears for new input
@@ -195,6 +197,9 @@ public class InvoiceFrame extends JFrame
 
         invoice.append("\n================================================\n");
         invoice.append("Amount Due: " + strAmountDue);
+
+        System.out.print("\n================================================\n");
+        System.out.println("Amount Due: $" + strAmountDue);
 
     }
 
@@ -212,6 +217,8 @@ public class InvoiceFrame extends JFrame
     private void makeHeader()
     {
         invoice.append("                                          Invoices");
+
+        System.out.println("                         Invoices");
     }
 
 
